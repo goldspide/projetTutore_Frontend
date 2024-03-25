@@ -31,4 +31,9 @@ export class UserService {
     checkToken(){
         return this.httpClient.get("http://127.0.0.1:3000/user/checkToken")
     }
+
+    changePassword(data: any) {
+        return this.httpClient.post("http://127.0.0.1:3000/user/changePassword", data,{
+        headers:new HttpHeaders().set('Content-Type', "application/json")}) 
+    }
 }
