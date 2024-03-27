@@ -36,4 +36,16 @@ export class UserService {
         return this.httpClient.post("http://127.0.0.1:3000/user/changePassword", data,{
         headers:new HttpHeaders().set('Content-Type', "application/json")}) 
     }
+
+    getUsers(){
+        return this.httpClient.get("http://127.0.0.1:3000/user/get",{
+        headers:new HttpHeaders().set('Content-Type', "application/json")})
+
+    }
+
+    update(data:any){
+        return this.httpClient.patch("http://127.0.0.1:3000/user/update", data,{
+        headers:new HttpHeaders().set('Content-Type', "application/json")})
+
+    }
 }
