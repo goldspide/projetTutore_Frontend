@@ -35,5 +35,16 @@ export class ProductService {
       headers: new HttpHeaders().set('Content-type', "application/json")
     })
   }
+  getProductsByCategory(id:any){
+    return this.httpClient.get("http://127.0.0.1:3000/product/getByCategory/"+id,{
+      headers: new HttpHeaders().set('Content-type', "application/json")
+    })
+  }
+
+  getById(id:any){
+    return this.httpClient.get("http://127.0.0.1:3000/product/getById/"+id,{
+      headers: new HttpHeaders().set('Content-type', "application/json")
+    })
+  }
 
 }

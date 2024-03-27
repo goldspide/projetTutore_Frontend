@@ -116,17 +116,15 @@ export class ManageProductComponent implements OnInit {
       this.snackbarService.openSnackBar(this.responseMessage,GlobalConstants.error);
     })
   }
-
-  onChange(status:any,id:any){
-
+  onChange(status:any, id:any){
     var data ={
       status:status.toString(),
       id:id
     }
-    this.productService.updateStatus(data).subscribe((response)=>{
+    this.productService.updateStatus(data).subscribe((response:any)=>{
       this.ngxService.stop();
-      this.responseMessage = response;
-      this.snackbarService.openSnackBar(this.responseMessage,"success"); 
+      this.responseMessage = response?.message;
+      this.snackbarService.openSnackBar(this.responseMessage,"success");      
     },(error:any)=>{
       this.ngxService.stop();
       if(error.error?.message){
@@ -138,4 +136,5 @@ export class ManageProductComponent implements OnInit {
       this.snackbarService.openSnackBar(this.responseMessage,GlobalConstants.error);
     })
   }
+
 }
